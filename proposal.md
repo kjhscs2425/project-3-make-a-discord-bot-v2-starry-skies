@@ -25,7 +25,7 @@ When a user says: random
 My bot will respond by: mix up the letters in the sentence
 
 When a user says: time
-My bot will respond by: count down to blast off
+My bot will respond by: count down from 5 to blast off (0)
 
 When a user says: backwards
 My bot will respond by: repeat the message backwards
