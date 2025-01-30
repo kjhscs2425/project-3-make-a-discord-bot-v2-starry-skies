@@ -34,7 +34,7 @@ def respond(user_message, user_name):
  if "animal" == user_message or "pet" == user_message:
    animal_jokes = [
      "A polar bear’s hair is not white – it’s colourless!",
-     "There are no male or female earthworms. All earthworms have both male and female parts – but it still takes two of them to reproduce."
+     "There are no male or female earthworms. All earthworms have both male and female parts – but it still takes two of them to reproduce.",
      "Huskies can run at speeds of around 31km per hour (20mph)!",
      "An eagle’s eyes are at least four times sharper than a human’s!",
      "Giant tortoise from the Galápagos Islands near Ecuador can weigh up to 250kg (550lbs) – the same as a brown bear!",
@@ -45,14 +45,7 @@ def respond(user_message, user_name):
    return("Here's a fun fact about animals! {animal_jokes}")
 
  if "corny" == user_message or "cheesy" == user_message:
-   corny_jokes = [ 
-     "Why do crabs never give to charity? Because they’re shellfish.",
-     "For a fungi to grow, you must give it as mushroom as possible.",
-     "I was going to grow some herbs, but I couldn’t find the thyme.",
-     "What do you call a sheep who can sing and dance? Lady Ba Ba.",
-     "What do you call a French man wearing sandals? Philipe Fallop.",
-     "Who won the neck decorating contest? It was a tie.",
-     "What do you call the security guards for Samsung? Guardians of the galaxy.",
+   corny_jokes = [ "Why do crabs never give to charity? Because they’re shellfish.", "For a fungi to grow, you must give it as mushroom as possible.", "I was going to grow some herbs, but I couldn’t find the thyme.", "What do you call a sheep who can sing and dance? Lady Ba Ba.", "What do you call a French man wearing sandals? Philipe Fallop.", "Who won the neck decorating contest? It was a tie.", "What do you call the security guards for Samsung? Guardians of the galaxy.",
    ]
    random_jokes = random.choice(corny_jokes)
    return(random_jokes)
