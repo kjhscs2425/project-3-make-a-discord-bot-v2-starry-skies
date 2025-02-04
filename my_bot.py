@@ -40,6 +40,7 @@ def respond(user_message, user_name):
    corny_jokes = [ "Why do crabs never give to charity? Because they’re shellfish.", "For a fungi to grow, you must give it as mushroom as possible.", "I was going to grow some herbs, but I couldn’t find the thyme.", "What do you call a sheep who can sing and dance? Lady Ba Ba.", "What do you call a French man wearing sandals? Philipe Fallop.", "Who won the neck decorating contest? It was a tie.", "What do you call the security guards for Samsung? Guardians of the galaxy."]
    random_jokes = random.choice(corny_jokes)
    return(random_jokes)
+ 
  if "mixed" == user_message:
    def mixed():
      text = user_message
@@ -50,27 +51,29 @@ def respond(user_message, user_name):
      text = text.replace("u", "U")
      return text
    mixed()
+
  if "hungry" == user_message:
-   cuisine_list = input("Do you like Italian, Mexican, Japanese, or Indian food?")
-   if "Italian" in cuisine_list:
-     italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
-     italian_food = random.choice(italian)
-     return("I suggest you try {italian_food}!")
-   if "Mexican" in cuisine_list:
+   return ("Do you like Italian, Mexican, Japanese, or Indian food?")
+ if "Italian" in user_message:
+    italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
+    italian_food = random.choice(italian)
+    return (f"I suggest you try" + italian_food + "!")
+ if "Mexican" in user_message:
      mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
      mexican_food = random.choice(mexican)
-     return("I suggest you try {mexican_food}!")
-   if "Japanese" in cuisine_list:
+     return (f"I suggest you try" + mexican_food + "!")
+ if "Japanese" in user_message:
      japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
      japanese_food = random.choice(japanese)
      return("I suggest you try {japanese}!")
-   if "Indian" in cuisine_list:
+ if "Indian" in user_message:
      indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
      indian_food = random.choice(indian)
-     return("I suggest you try {indian_food}!")
-   if "cold" == user_message:
-     return ("Make sure to wear a jacket!")
-   if "random" == user_message:
+     return (f"I suggest you try" + indian_food + "!")
+ 
+ if "cold" == user_message:
+    return ("Make sure to wear a jacket!")
+ if "random" == user_message:
      key = float(input("Pick a number!"))
      def randomize(user_message):
        new_text = ""
@@ -85,7 +88,7 @@ def respond(user_message, user_name):
             new_text += new_letter
        return new_text
      return(randomize(user_message))
-   if "time" == user_message:
+ if "time" == user_message:
       def countdown():
         time = float(input("Pick a number!"))
         for i in range(time):
@@ -94,11 +97,5 @@ def respond(user_message, user_name):
         if countdown == 0:
             return "Blast off!!!"
       countdown()
-
-     
-     
-    
-       
-     
-
-
+ if "backward" == user_message:
+   return True
