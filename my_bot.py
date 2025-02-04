@@ -9,7 +9,7 @@ def should_i_respond(user_message, user_name):
       return True
      if "animal" or "pet" in user_message:
       return True
-     if "mixed" in user_message:
+     if "capitilize" in user_message:
       return True
      if "cheesy" or "corny" in user_message:
       return True
@@ -43,13 +43,12 @@ def respond(user_message, user_name):
  
  if "mixed" == user_message:
    def mixed():
-     text = user_message
-     text = text.replace("a", "A")
-     text = text.replace("e", "E")
-     text = text.replace("i", "I")
-     text = text.replace("o", "O")
-     text = text.replace("u", "U")
-     return text
+     user_message = user_message.replace("a", "A")
+     user_message = user_message.replace("e", "E")
+     user_message = user_message.replace("i", "I")
+     user_message = user_message.replace("o", "O")
+     user_message = user_message.replace("u", "U")
+     return user_message
    mixed()
 
  if "hungry" == user_message:
