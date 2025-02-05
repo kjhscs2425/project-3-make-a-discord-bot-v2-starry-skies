@@ -72,10 +72,9 @@ def my_respond(user_message, user_name):
 #      indian_food = random.choice(indian)
 #      return f"I suggest you try" + indian_food + "!"
   if "encrypt" == user_message:
-    random_key = random.randint(1,100)
-    return random_key
+    key_choices = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+    random_key = random.choice(key_choices)
     new_text = ""
-    key()
     for letter in user_message:
           old_position = alphabet.find(letter)
           if old_position == -1:
@@ -85,21 +84,10 @@ def my_respond(user_message, user_name):
             new_letter = alphabet[new_position]
             new_text += new_letter
     return new_text
- 
-
-
- 
-
-
- 
-   #doesn't work
-#  if "time" == user_message:
-#     for i in range(10, 0, -1):
-#      yield i
-#     yield "Blast off!!!"
-
-    #doesn't work
-#  if "backward" == user_message:
-#    return True
-#  respond(user_message, user_name)
-#   """
+  if "time" == user_message:
+    for i in range(10, 0, -1):
+     yield i
+    yield "Blast off!!!"
+  if "backward" == user_message:
+    return True
+  
