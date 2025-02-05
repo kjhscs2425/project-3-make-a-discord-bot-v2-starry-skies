@@ -3,7 +3,7 @@ import random
 import string
 alphabet = string.ascii_lowercase
 def should_i_respond(user_message, user_name):
-     if "robot" in user_message:
+     if "up" in user_message:
       return True
      if "down" in user_message:
       return True
