@@ -65,14 +65,14 @@ def respond(user_message, user_name):
  if "Japanese" in user_message:
      japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
      japanese_food = random.choice(japanese)
-     return("I suggest you try {japanese}!")
+     return(f"I suggest you try {japanese}!")
  if "Indian" in user_message:
      indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
      indian_food = random.choice(indian)
-     return (f"I suggest you try" + indian_food + "!")
+     return f"I suggest you try" + indian_food + "!"
  #works
  if "cold" == user_message:
-    return ("Make sure to wear a jacket!")
+    return "Make sure to wear a jacket!"
 #doesn't work
  if "encrypt" == user_message:
      key = random.choice(1,100)
@@ -95,3 +95,4 @@ def respond(user_message, user_name):
     #doesn't work
  if "backward" == user_message:
    return True
+ respond(user_message, user_name)
