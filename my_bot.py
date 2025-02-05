@@ -1,6 +1,7 @@
 
 import random
 import string
+state = "start"
 alphabet = string.ascii_lowercase
 def should_i_respond(user_message, user_name):
      if "up" in user_message:
@@ -9,7 +10,7 @@ def should_i_respond(user_message, user_name):
       return True
      if "animal" or "pet" in user_message:
       return True
-     if "mix" in user_message:
+     if "capitilize" in user_message:
       return True
      if "cheesy" or "corny" in user_message:
       return True
@@ -23,76 +24,82 @@ def should_i_respond(user_message, user_name):
       return True
      if "backward" in user_message:
        return True
+     if state == "Italian":
+       return True
      else:
        return False
      
-def respond(user_message, user_name):
- #works
- if "up" == user_message:
+def my_respond(user_message, user_name):
+  global state
+  if "up" == user_message:
    return user_message.upper()
-  #works
- if "down" == user_message:
-   return user_message.lower()
-  #works
- if "animal" == user_message or "pet" == user_message:
+  if "down" == user_message:
+    return user_message.lower()
+  if "animal" == user_message or "pet" == user_message:
    animal_jokes = ["A polar bear’s hair is not white – it’s colourless!", "There are no male or female earthworms. All earthworms have both male and female parts – but it still takes two of them to reproduce.", "Huskies can run at speeds of around 31km per hour (20mph)!", "An eagle’s eyes are at least four times sharper than a human’s!", "Giant tortoise from the Galápagos Islands near Ecuador can weigh up to 250kg (550lbs) – the same as a brown bear!", "The lion has the loudest roar of all the big cats. It can be heard as far as 5km (3 miles) away.","Humans share 98.8 percent of chimpanzee DNA. But even with DNA so similar, humans and chimps have around 35 million differences between them."]
    random_animal_jokes = random.choice(animal_jokes)
    return(f"Here's a fun fact about animals! " + random_animal_jokes)
-  #works
- if "corny" == user_message or "cheesy" == user_message:
+  if "corny" == user_message or "cheesy" == user_message:
    corny_jokes = [ "Why do crabs never give to charity? Because they’re shellfish.", "For a fungi to grow, you must give it as mushroom as possible.", "I was going to grow some herbs, but I couldn’t find the thyme.", "What do you call a sheep who can sing and dance? Lady Ba Ba.", "What do you call a French man wearing sandals? Philipe Fallop.", "Who won the neck decorating contest? It was a tie.", "What do you call the security guards for Samsung? Guardians of the galaxy."]
    random_jokes = random.choice(corny_jokes)
    return(random_jokes)
-  #works
- if user_message == "mix":
-  user_message = user_message.replace("a", "A")
-  user_message = user_message.replace("e", "E")
-  user_message = user_message.replace("i", "I")
-  user_message = user_message.replace("o", "O")
-  user_message = user_message.replace("u", "U")
-  return user_message
-  #works but no memory
- if "hungry" == user_message:
-   return ("Do you like Italian, Mexican, Japanese, or Indian food?")
- if "Italian" in user_message:
-    italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
-    italian_food = random.choice(italian)
-    return (f"I suggest you try" + italian_food + "!")
- if "Mexican" in user_message:
-     mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
-     mexican_food = random.choice(mexican)
-     return (f"I suggest you try" + mexican_food + "!")
- if "Japanese" in user_message:
-     japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
-     japanese_food = random.choice(japanese)
-     return(f"I suggest you try {japanese}!")
- if "Indian" in user_message:
-     indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
-     indian_food = random.choice(indian)
-     return f"I suggest you try" + indian_food + "!"
- #works
- if "cold" == user_message:
+  if user_message == "capitilize":
+   user_message = user_message.replace("a", "A")
+   user_message = user_message.replace("e", "E")
+   user_message = user_message.replace("i", "I")
+   user_message = user_message.replace("o", "O")
+   user_message = user_message.replace("u", "U")
+   return user_message
+  # if "hungry" == user_message:
+  #   state == "Italian"
+  # if state == "Italian" in user_message:
+  #   state = "Italian"
+  #   italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
+  #   italian_food = random.choice(italian)
+  #   return (f"I suggest you try" + italian_food + "!")
+  if "cold" == user_message:
     return "Make sure to wear a jacket!"
-#doesn't work
- if "encrypt" == user_message:
-     key = random.choice(1,100)
-     new_text = ""
-     for letter in user_message:
+#  if "Mexican" in user_message:
+#      mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
+#      mexican_food = random.choice(mexican)
+#      return (f"I suggest you try" + mexican_food + "!")
+#  if "Japanese" in user_message:
+#      japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
+#      japanese_food = random.choice(japanese)
+#      return(f"I suggest you try {japanese}!")
+#  if "Indian" in user_message:
+#      indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
+#      indian_food = random.choice(indian)
+#      return f"I suggest you try" + indian_food + "!"
+  if "encrypt" == user_message:
+    random_key = random.randint(1,100)
+    return random_key
+    new_text = ""
+    key()
+    for letter in user_message:
           old_position = alphabet.find(letter)
           if old_position == -1:
             new_text += " "
           else:
-            new_position = (old_position + key) % len(alphabet)
+            new_position = (old_position + random_key) % len(alphabet)
             new_letter = alphabet[new_position]
             new_text += new_letter
-     return new_text
+    return new_text
+ 
+
+
+ 
+
+
+ 
    #doesn't work
- if "time" == user_message:
-    for i in range(10, 0, -1):
-     yield i
-    yield "Blast off!!!"
+#  if "time" == user_message:
+#     for i in range(10, 0, -1):
+#      yield i
+#     yield "Blast off!!!"
 
     #doesn't work
- if "backward" == user_message:
-   return True
- respond(user_message, user_name)
+#  if "backward" == user_message:
+#    return True
+#  respond(user_message, user_name)
+#   """
