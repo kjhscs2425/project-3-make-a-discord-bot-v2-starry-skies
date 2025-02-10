@@ -3,6 +3,7 @@ import random
 import string
 alphabet = string.ascii_lowercase
 global state
+state = ""
 
 def should_i_respond(user_message, user_name):
      if "up" in user_message:
@@ -38,10 +39,10 @@ def should_i_respond(user_message, user_name):
      
 def my_respond(user_message, user_name):
   global state
-  state = "start"
+  state = ""
   if "up" in user_message:
-   state = "up"
-   return "What word should I capitilize?"
+    state = "up"
+    return "What word should I capitilize?"
   if state == "up":
     message = user_message.upper()
     state = "start"
@@ -86,11 +87,10 @@ def my_respond(user_message, user_name):
     return new_text
   if "time" in user_message:
     random_time = random.randint(1, 100)
-    countdown_list = []
+    message = ""
     for i in range(random_time, 0, -1):
-     i += random_time
-    return i
-  return countdown_list("Blast off!!!")
+       message += str(i) + " "
+    return message
   if "backward" in user_message:
     state = "backwards"
     return "What word should I spell backwards?"
@@ -98,29 +98,27 @@ def my_respond(user_message, user_name):
     reverse = user_message[::-1]
     return reverse
   if "hungry" in user_message:
-    return "Do you want to have Italian, Mexican, Japanese, or Indian food?"
-  if "Italian" or "italian" in user_message:
-    state == "Italian"
-  if state == "Italian":
-    italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
-    italian_food = random.choice(italian)
-    return (f"I suggest you try " + italian_food + "!")
-  if "Mexican" or "mexican" in user_message:
-    state == "Mexican"
-  if state == "Mexican":
-     mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
-     mexican_food = random.choice(mexican)
-     return (f"I suggest you try " + mexican_food + "!")
-  if "Japanese" or "japanese" in user_message:
-      state == "Japanese"
-  if state == "Japanese":
-     japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
-     japanese_food = random.choice(japanese)
-     return(f"I suggest you try " + japanese_food + "!")
-  if "Indian" or "indian" in user_message:
-      state == "Indian"
-  if state == "Indian":
-     indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
-     indian_food = random.choice(indian)
-     return f"I suggest you try " + indian_food + "!"
+    state = "hungry"
+    return f"""Do you want to have Italian, Mexican, Japanese, or Indian food?"""
+  if state == "hungry":
+    if "Italian" or "italian" in user_message:
+      state == "Italian"
+      italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
+      italian_food = random.choice(italian)
+      return (f"I suggest you try " + italian_food + "!")
+    if "Mexican" or "mexican" in user_message:
+      state == "Mexican"
+      mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
+      mexican_food = random.choice(mexican)
+      return (f"I suggest you try " + mexican_food + "!")
+    if "Japanese" or "japanese" in user_message:
+      state = "Japanese"
+      japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
+      japanese_food = random.choice(japanese)
+      return(f"I suggest you try " + japanese_food + "!")
+    if "Indian" or "indian" in user_message:
+      state = "Indian"
+      indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
+      indian_food = random.choice(indian)
+      return f"I suggest you try " + indian_food + "!"
   
