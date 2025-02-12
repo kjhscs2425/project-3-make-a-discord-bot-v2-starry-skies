@@ -2,44 +2,52 @@
 import random
 import string
 alphabet = string.ascii_lowercase
-global state
-state = ""
+state = "start"
 
 def should_i_respond(user_message, user_name):
-     if "up" in user_message:
+    if "up" in user_message:
+     return True
+    if state == "up":
       return True
-     if "down" in user_message:
+    if "down" in user_message:
+     return True
+    if state == "down":
       return True
-     if "animal" or "pet" in user_message:
+    if "animal" or "pet" in user_message:
+     return True
+    if "capitilize" in user_message:
+     return True
+    if "joke" in user_message:
+     return True
+    if "hungry" in user_message:
+     return True
+    if state == "hungry":
       return True
-     if "capitilize" in user_message:
+    if "cold" in user_message:
       return True
-     if "joke" in user_message:
+    if "encrypt" in user_message:
+     return True
+    if state == "encypt":
       return True
-     if "hungry" in user_message:
+    if "time" in user_message:
+     return True
+    if "backward" in user_message:
       return True
-     if "cold" in user_message:
-       return True
-     if "encrypt" in user_message:
+    if state == "backwards":
       return True
-     if "time" in user_message:
+    if "Italian" in user_message or "italian" in user_message:
       return True
-     if "backward" in user_message:
-       return True
-     if "Italian" in user_message or "italian" in user_message:
-       return True
-     if "Mexican" in user_message or "mexican" in user_message:
-       return True
-     if "Japanese" in user_message or "japanese" in user_message:
-       return True
-     if "Indian" in user_message or "indian" in user_message:
-       return True
-     else:
-       return False
+    if "Mexican" in user_message or "mexican" in user_message:
+      return True
+    if "Japanese" in user_message or "japanese" in user_message:
+      return True
+    if "Indian" in user_message or "indian" in user_message:
+      return True
+    else:
+      return False
      
 def my_respond(user_message, user_name):
   global state
-  state = ""
   if "up" in user_message:
     state = "up"
     return "What word should I capitilize?"
@@ -96,6 +104,7 @@ def my_respond(user_message, user_name):
     return "What word should I spell backwards?"
   if state == "backwards":
     reverse = user_message[::-1]
+    state = "start"
     return reverse
   if "hungry" in user_message:
     state = "hungry"
