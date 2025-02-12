@@ -51,16 +51,21 @@ def my_respond(user_message, user_name):
     state = "down"
     return "What word should I lowercase?"
   if state == "down":
-    return user_message.lower()
+    message_2 = user_message.lower()
+    state = "start"
+    return message_2
   if "animal" in user_message or "pet" == user_message:
+   state = "start"
    animal_jokes = ["A polar bear’s hair is not white – it’s colourless!", "There are no male or female earthworms. All earthworms have both male and female parts – but it still takes two of them to reproduce.", "Huskies can run at speeds of around 31km per hour (20mph)!", "An eagle’s eyes are at least four times sharper than a human’s!", "Giant tortoise from the Galápagos Islands near Ecuador can weigh up to 250kg (550lbs) – the same as a brown bear!", "The lion has the loudest roar of all the big cats. It can be heard as far as 5km (3 miles) away.","Humans share 98.8 percent of chimpanzee DNA. But even with DNA so similar, humans and chimps have around 35 million differences between them."]
    random_animal_jokes = random.choice(animal_jokes)
    return(f"Here's a fun fact about animals! " + random_animal_jokes)
   if "joke" in user_message:
+   state = "start"
    corny_jokes = [ "Why do crabs never give to charity? Because they’re shellfish.", "For a fungi to grow, you must give it as mushroom as possible.", "I was going to grow some herbs, but I couldn’t find the thyme.", "What do you call a sheep who can sing and dance? Lady Ba Ba.", "What do you call a French man wearing sandals? Philipe Fallop.", "Who won the neck decorating contest? It was a tie.", "What do you call the security guards for Samsung? Guardians of the galaxy."]
    random_jokes = random.choice(corny_jokes)
    return(random_jokes)
   if  "capitilize" in user_message:
+   state = "start"
    user_message = user_message.replace("a", "A")
    user_message = user_message.replace("e", "E")
    user_message = user_message.replace("i", "I")
@@ -68,6 +73,7 @@ def my_respond(user_message, user_name):
    user_message = user_message.replace("u", "U")
    return user_message
   if "cold" in user_message:
+    state = "start"
     return "Make sure to wear a jacket!"
   if "encrypt" in user_message:
     state = "encrypt"
@@ -84,8 +90,10 @@ def my_respond(user_message, user_name):
             new_position = (old_position + random_key) % len(alphabet)
             new_letter = alphabet[new_position]
             new_text += new_letter
+    state = "start"
     return new_text
   if "time" in user_message:
+    state = "time"
     random_time = random.randint(1, 100)
     message = ""
     for i in range(random_time, 0, -1):
@@ -101,20 +109,20 @@ def my_respond(user_message, user_name):
   if "hungry" in user_message:
     state = "hungry"
     return "Do you want to have Italian, Mexican, Japanese, or Indian food?"
-  # if "Italian" or "italian" in user_message:
-  #     italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
-  #     italian_food = random.choice(italian)
-      # return (f"I suggest you try " + italian_food + "!")
-  if "Mexican" or "mexican" in user_message:
+  if "Italian" in user_message or "italian" in user_message:
+      italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
+      italian_food = random.choice(italian)
+      return f"I suggest you try {italian_food}!"
+  if "Mexican" in user_message or "mexican" in user_message:
       mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
       mexican_food = random.choice(mexican)
-      return (f"I suggest you try " + mexican_food + "!")
-  if "Japanese" or "japanese" in user_message:
+      return f"I suggest you try {mexican_food}!"
+  if "Japanese" in user_message or "japanese" in user_message:
       japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
       japanese_food = random.choice(japanese)
-      return(f"I suggest you try " + japanese_food + "!")
-  if "Indian" or "indian" in user_message:
+      return f"I suggest you try {japanese_food}!"
+  if "Indian" in user_message or "indian" in user_message:
       indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
       indian_food = random.choice(indian)
-      return f"I suggest you try " + indian_food + "!"
+      return f"I suggest you try {indian_food}!"
   
