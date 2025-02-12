@@ -35,14 +35,6 @@ def should_i_respond(user_message, user_name):
       return True
     if state == "backwards":
       return True
-    if "Italian" in user_message or "italian" in user_message:
-      return True
-    if "Mexican" in user_message or "mexican" in user_message:
-      return True
-    if "Japanese" in user_message or "japanese" in user_message:
-      return True
-    if "Indian" in user_message or "indian" in user_message:
-      return True
     else:
       return False
      
@@ -108,25 +100,20 @@ def my_respond(user_message, user_name):
     return reverse
   if "hungry" in user_message:
     state = "hungry"
-    return f"""Do you want to have Italian, Mexican, Japanese, or Indian food?"""
-  if state == "hungry":
-    if "Italian" or "italian" in user_message:
-      state == "Italian"
-      italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
-      italian_food = random.choice(italian)
-      return (f"I suggest you try " + italian_food + "!")
-    if "Mexican" or "mexican" in user_message:
-      state == "Mexican"
+    return "Do you want to have Italian, Mexican, Japanese, or Indian food?"
+  # if "Italian" or "italian" in user_message:
+  #     italian = ["lasagna", "risotto", "cacio e pepe", "tiramisu", "arancini", "focaccia", "gelato"]
+  #     italian_food = random.choice(italian)
+      # return (f"I suggest you try " + italian_food + "!")
+  if "Mexican" or "mexican" in user_message:
       mexican = ["tamales", "enchiladas", "pozole", "churros", "birria", "fajitas", "tortas"]
       mexican_food = random.choice(mexican)
       return (f"I suggest you try " + mexican_food + "!")
-    if "Japanese" or "japanese" in user_message:
-      state = "Japanese"
+  if "Japanese" or "japanese" in user_message:
       japanese = ["ramen", "takoyaki", "gyudon", "sushi", "tempura", "udon", "shabu-shabu"]
       japanese_food = random.choice(japanese)
       return(f"I suggest you try " + japanese_food + "!")
-    if "Indian" or "indian" in user_message:
-      state = "Indian"
+  if "Indian" or "indian" in user_message:
       indian = ["biryani", "samosas", "tikka masala", "pani puri", "aloo gobi", "masala dosa", "chana masala"]
       indian_food = random.choice(indian)
       return f"I suggest you try " + indian_food + "!"
